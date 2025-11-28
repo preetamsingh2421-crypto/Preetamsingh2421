@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Shramik Panjiyan - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0 0 20px 0;
+            color: #111827;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 14px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div class="container" id="login-page">
+        <h1>ISI Login</h1>
+        <form id="login-form">
+            <label for="user-id">User ID</label>
+            <input type="text" id="user-id" name="user-id" placeholder="Koi bhi ID daalein" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Koi bhi password daalein" required>
+
+            <button type="submit">Login</button>
+            <p class="note">Yahan par abhi koi verification nahi hai. Koi bhi ID aur password dal kar login ho jaayega.</p>
+        </form>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div class="container" id="dashboard-page" style="display: none;">
+        <h2>Shramik Panjiyan</h2>
+
+        <form id="shramik-form">
+            <label for="name">Shramik ka Naam</label>
+            <input type="text" id="name" name="name" placeholder="Pura naam">
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="10 digit mobile number">
+
+            <label for="age">Umar (Age)</label>
+            <input type="number" id="age" name="age" placeholder="Umar">
+
+            <label for="state">Rajya (State)</label>
+            <select id="state" name="state">
+                <option value="">Rajya chunen</option>
+                <option>Uttar Pradesh</option>
+                <option>Bihar</option>
+                <option>Madhya Pradesh</option>
+                <option>Rajasthan</option>
+                <option>Delhi</option>
+            </select>
+
+            <label for="work">Kaam ka Prakaar</label>
+            <input type="text" id="work" name="work" placeholder="Jaise: Mazdoori, Driver, etc.">
+
+            <button type="button" onclick="alert('Shramik ki jaankari save kar li gayi (demo).')">
+                Save / Register
+            </button>
+
+            <p class="note">
+                Yeh sirf demo form hai. Data kahin server par save nahi ho raha,
+                sirf court / practice ke liye bana hai.
+            </p>
+        </form>
+    </div>
+
+    <script>
+        // Login form submit
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault(); // Form ka default submit band
+
+            // Yahan koi real checking nahi hai. Koi bhi ID/password chalega.
+            document.getElementById("login-page").style.display = "none";
+            document.getElementById("dashboard-page").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
