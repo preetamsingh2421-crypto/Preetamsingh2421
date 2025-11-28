@@ -1,136 +1,449 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <title>Shramik Panjiyan - Login</title>
+    <meta charset="UTF-8" />
+    <title>श्रमिक के पंजीयन का आवेदन पत्र</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f3f4f6;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5eee3;
         }
-
-        .container {
-            max-width: 420px;
-            margin: 60px auto;
-            background: #ffffff;
-            padding: 25px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        .header {
+            background-color: #f7941d;
+            color: #fff;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        h1, h2 {
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .header-title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        h2 {
             text-align: center;
-            margin: 0 0 20px 0;
-            color: #111827;
+            margin-top: 10px;
         }
-
+        .section-box {
+            background-color: #fff;
+            margin: 15px 0;
+            padding: 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            background-color: #fcbf7e;
+            padding: 8px 10px;
+            font-weight: bold;
+            margin: -15px -15px 15px -15px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
         label {
             display: block;
-            margin-bottom: 6px;
-            font-size: 14px;
-            color: #374151;
+            font-size: 13px;
+            margin-bottom: 4px;
         }
-
-        input, select {
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="email"],
+        select {
             width: 100%;
-            padding: 8px 10px;
-            margin-bottom: 14px;
-            border-radius: 4px;
-            border: 1px solid #d1d5db;
-            font-size: 14px;
+            padding: 6px;
             box-sizing: border-box;
+            font-size: 13px;
         }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            border-radius: 4px;
+        .photo-box {
+            width: 120px;
+            height: 140px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        .btn {
+            background-color: #28a745;
+            color: #fff;
             border: none;
-            background: #2563eb;
-            color: white;
+            padding: 10px 25px;
             font-size: 15px;
             cursor: pointer;
         }
-
-        button:hover {
-            background: #1d4ed8;
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .center {
+            text-align: center;
+            margin: 20px 0;
         }
 
-        .note {
-            font-size: 12px;
-            color: #6b7280;
-            text-align: center;
-            margin-top: 8px;
+        @media (max-width: 600px) {
+            .photo-box {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- LOGIN PAGE -->
-    <div class="container" id="login-page">
-        <h1>ISI Login</h1>
-        <form id="login-form">
-            <label for="user-id">User ID</label>
-            <input type="text" id="user-id" name="user-id" placeholder="Koi bhi ID daalein" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Koi bhi password daalein" required>
-
-            <button type="submit">Login</button>
-            <p class="note">Yahan par abhi koi verification nahi hai. Koi bhi ID aur password dal kar login ho jaayega.</p>
-        </form>
+    <div class="header">
+        <div class="header-logo"></div>
+        <div class="header-title">
+            LMIS - Labour Management Information System
+        </div>
     </div>
 
-    <!-- DASHBOARD PAGE -->
-    <div class="container" id="dashboard-page" style="display: none;">
-        <h2>Shramik Panjiyan</h2>
+    <div class="page-wrapper">
+        <h2>श्रमिक के पंजीयन का आवेदन पत्र</h2>
 
-        <form id="shramik-form">
-            <label for="name">Shramik ka Naam</label>
-            <input type="text" id="name" name="name" placeholder="Pura naam">
+        <!-- Poora form: submit karne par success.html khulega -->
+        <form action="success.html" method="post">
 
-            <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="10 digit mobile number">
+            <!-- Basic Details -->
+            <div class="section-box">
+                <div class="section-title">Basic Details</div>
 
-            <label for="age">Umar (Age)</label>
-            <input type="number" id="age" name="age" placeholder="Umar">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>श्रमिक का आधार कार्ड नंबर *</label>
+                        <input type="text" name="aadhaar" required />
+                    </div>
+                    <div class="form-group">
+                        <label>राशनकार्ड संख्या / Family ID</label>
+                        <input type="text" name="family_id" />
+                    </div>
+                </div>
 
-            <label for="state">Rajya (State)</label>
-            <select id="state" name="state">
-                <option value="">Rajya chunen</option>
-                <option>Uttar Pradesh</option>
-                <option>Bihar</option>
-                <option>Madhya Pradesh</option>
-                <option>Rajasthan</option>
-                <option>Delhi</option>
-            </select>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>श्रमिक का नाम (अंग्रेजी में) *</label>
+                        <input type="text" name="name_en" required />
+                    </div>
+                    <div class="form-group">
+                        <label>श्रमिक का नाम (हिंदी में) *</label>
+                        <input type="text" name="name_hi" required />
+                    </div>
+                </div>
 
-            <label for="work">Kaam ka Prakaar</label>
-            <input type="text" id="work" name="work" placeholder="Jaise: Mazdoori, Driver, etc.">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>पिता/पति का नाम (अंग्रेजी में) *</label>
+                        <input type="text" name="father_en" required />
+                    </div>
+                    <div class="form-group">
+                        <label>पिता/पति का नाम (हिंदी में) *</label>
+                        <input type="text" name="father_hi" required />
+                    </div>
+                </div>
 
-            <button type="button" onclick="alert('Shramik ki jaankari save kar li gayi (demo).')">
-                Save / Register
-            </button>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>माता का नाम (अंग्रेजी में)</label>
+                        <input type="text" name="mother_en" />
+                    </div>
+                    <div class="form-group">
+                        <label>माता का नाम (हिंदी में)</label>
+                        <input type="text" name="mother_hi" />
+                    </div>
+                    <div class="form-group">
+                        <label>श्रमिक का प्रकार *</label>
+                        <select name="worker_type" required>
+                            <option value="">चुने ...</option>
+                            <option value="nirman">निर्माण श्रमिक</option>
+                            <option value="other">अन्य</option>
+                        </select>
+                    </div>
+                </div>
 
-            <p class="note">
-                Yeh sirf demo form hai. Data kahin server par save nahi ho raha,
-                sirf court / practice ke liye bana hai.
-            </p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>लिंग *</label>
+                        <select name="gender" required>
+                            <option value="">चुने ...</option>
+                            <option value="male">पुरुष</option>
+                            <option value="female">महिला</option>
+                            <option value="other">अन्य</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>जन्मतिथि *</label>
+                        <input type="date" name="dob" required />
+                    </div>
+                    <div class="form-group">
+                        <label>वैवाहिक स्थिति *</label>
+                        <select name="marital_status" required>
+                            <option value="">चुने ...</option>
+                            <option value="single">अविवाहित</option>
+                            <option value="married">विवाहित</option>
+                            <option value="widow">विधवा / विधुर</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>आयु *</label>
+                        <input type="number" name="age" min="18" max="60" required />
+                    </div>
+                    <div class="form-group">
+                        <label>वर्ग *</label>
+                        <input type="text" name="category" placeholder="सामान्य / ओबीसी / एससी / एसटी" required />
+                    </div>
+                    <div class="form-group">
+                        <label>ई-मेल</label>
+                        <input type="email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label>मोबाइल नंबर *</label>
+                        <input type="text" name="mobile" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>शैक्षिक योग्यता *</label>
+                        <select name="education" required>
+                            <option value="">चुने ...</option>
+                            <option value="illiterate">निरक्षर</option>
+                            <option value="primary">प्राथमिक</option>
+                            <option value="highschool">हाईस्कूल</option>
+                            <option value="intermediate">इंटरमीडिएट</option>
+                            <option value="graduate">स्नातक</option>
+                            <option value="post_graduate">स्नातकोत्तर</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>यदि श्रमिक मनरेगा में कार्यरत है तो टिक करें:</label>
+                        <div class="radio-group">
+                            <input type="checkbox" id="mnrega" name="mnrega" />
+                            <label for="mnrega">मनरेगा श्रमिक</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="photo-box">
+                            फोटो (Demo)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Details -->
+            <div class="section-box">
+                <div class="section-title">Address Details</div>
+
+                <h4>वर्तमान पता (जहाँ पर कार्यरत है)</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>जनपद *</label>
+                        <select name="curr_district" required>
+                            <option value="">चुने ...</option>
+                            <option value="ayodhya">अयोध्या</option>
+                            <option value="amethi">अमेठी</option>
+                            <option value="ambedkar">अम्बेडकर नगर</option>
+                            <option value="barabanki">बाराबंकी</option>
+                            <option value="sultanpur">सुल्तानपुर</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>तहसील *</label>
+                        <select name="curr_tehsil" required>
+                            <option value="">चुने ...</option>
+                            <option value="t1">तहसील 1</option>
+                            <option value="t2">तहसील 2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>विकास खण्ड *</label>
+                        <select name="curr_block" required>
+                            <option value="">चुने ...</option>
+                            <option value="nagar">नागर निकाय</option>
+                            <option value="gramin">विकास खण्ड</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>वार्ड / गांव *</label>
+                        <input type="text" name="curr_village" required />
+                    </div>
+                    <div class="form-group">
+                        <label>पिन कोड *</label>
+                        <input type="text" name="curr_pincode" required />
+                    </div>
+                    <div class="form-group">
+                        <label>पोस्ट *</label>
+                        <input type="text" name="curr_post" required />
+                    </div>
+                    <div class="form-group">
+                        <label>थाना *</label>
+                        <input type="text" name="curr_thana" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>गली / मोहल्ला</label>
+                        <input type="text" name="curr_mohalla" />
+                    </div>
+                    <div class="form-group">
+                        <label>मकान संख्या</label>
+                        <input type="text" name="curr_house_no" />
+                    </div>
+                </div>
+
+                <hr />
+
+                <h4>आवेदक का स्थाई पता</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>राज्य *</label>
+                        <select name="perm_state" required>
+                            <option value="">चुने ...</option>
+                            <option value="up">उत्तर प्रदेश</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>मण्डल *</label>
+                        <select name="perm_mandal" required>
+                            <option value="">चुने ...</option>
+                            <option value="ayodhya">अयोध्या</option>
+                            <option value="lucknow">लखनऊ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>जनपद *</label>
+                        <select name="perm_district" required>
+                            <option value="">चुने ...</option>
+                            <option value="ayodhya">अयोध्या</option>
+                            <option value="barabanki">बाराबंकी</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>तहसील *</label>
+                        <select name="perm_tehsil" required>
+                            <option value="">चुने ...</option>
+                            <option value="t1">तहसील 1</option>
+                            <option value="t2">तहसील 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>वार्ड / गांव *</label>
+                        <input type="text" name="perm_village" required />
+                    </div>
+                    <div class="form-group">
+                        <label>पिन कोड *</label>
+                        <input type="text" name="perm_pincode" required />
+                    </div>
+                    <div class="form-group">
+                        <label>पोस्ट *</label>
+                        <input type="text" name="perm_post" required />
+                    </div>
+                    <div class="form-group">
+                        <label>थाना *</label>
+                        <input type="text" name="perm_thana" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>गली / मोहल्ला</label>
+                        <input type="text" name="perm_mohalla" />
+                    </div>
+                    <div class="form-group">
+                        <label>मकान संख्या</label>
+                        <input type="text" name="perm_house_no" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bank Details -->
+            <div class="section-box">
+                <div class="section-title">बैंक एवं अभिलेख का विवरण</div>
+
+                <h4>बैंक का विवरण</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>खाता संख्या *</label>
+                        <input type="text" name="account_no" required />
+                    </div>
+                    <div class="form-group">
+                        <label>IFSC कोड *</label>
+                        <input type="text" name="ifsc" required />
+                    </div>
+                    <div class="form-group">
+                        <label>बैंक का नाम *</label>
+                        <input type="text" name="bank_name" required />
+                    </div>
+                    <div class="form-group">
+                        <label>शाखा का नाम *</label>
+                        <input type="text" name="branch_name" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>खाता का प्रकार *</label>
+                        <select name="account_type" required>
+                            <option value="">चुने ...</option>
+                            <option value="saving">Saving</option>
+                            <option value="current">Current</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ई-पीएफ नंबर (यदि पंजीकृत हो तो)</label>
+                        <input type="text" name="epf_no" />
+                    </div>
+                    <div class="form-group">
+                        <label>ई-एसआईसी नंबर (यदि पंजीकृत हो तो)</label>
+                        <input type="text" name="esic_no" />
+                    </div>
+                    <div class="form-group">
+                        <label>यूएएन नंबर (यदि पंजीकृत हो तो)</label>
+                        <input type="text" name="uan_no" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="center">
+                <button type="submit" class="btn">ओ.टी.पी. भेजें / Submit (Demo)</button>
+            </div>
         </form>
     </div>
-
-    <script>
-        // Login form submit
-        document.getElementById("login-form").addEventListener("submit", function (e) {
-            e.preventDefault(); // Form ka default submit band
-
-            // Yahan koi real checking nahi hai. Koi bhi ID/password chalega.
-            document.getElementById("login-page").style.display = "none";
-            document.getElementById("dashboard-page").style.display = "block";
-        });
-    </script>
 
 </body>
 </html>
